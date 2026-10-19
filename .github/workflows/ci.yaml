@@ -1,0 +1,22 @@
+name: Testes com Docker Compose
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  testes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o projeto
+        uses: actions/checkout@v4
+
+      - name: Construir a imagem dos testes
+        run: docker compose -f compose.yaml -f compose.test.yaml build tests
+
+      - name: Executar os testes com Redis
+        run: docker compose -f compose.yaml -f compose.test.yaml run --rm tests
+
+      - name: Encerrar os servicos
+        if: always()
+        run: docker compose -f compose.yaml -f compose.test.yaml down -v
