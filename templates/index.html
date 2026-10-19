@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111111">
+    <title>PequenoJim | Docker Compose</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <main class="container">
+      <header class="cabecalho">
+        <div class="marca"><span class="marca-icone">PJ</span> PequenoJim</div>
+        <span class="etiqueta"><span class="ponto"></span> Docker Compose</span>
+      </header>
+
+      <section class="hero">
+        <div class="imagem-moldura">
+          <img src="{{ url_for('static', filename='wallpaper_pequenojim.png') }}" alt="Wallpaper com o nome PequenoJim em letras pretas tridimensionais">
+        </div>
+        <div class="descricao">
+          <div>
+            <p class="subtitulo">FERRAMENTAS ÁGEIS II · ATIVIDADE 07</p>
+            <h1>Uma aplicação.<br><span>Dois serviços.</span></h1>
+            <p class="introducao">Aplicação web em Python, servida por um contêiner Docker e conectada ao Redis para guardar o contador de visitas.</p>
+          </div>
+          <div class="contador" aria-live="polite">
+            <p>ACESSOS REGISTRADOS</p>
+            {% if visitas is not none %}
+              <strong>{{ visitas }}</strong>
+              <span>O contador permanece salvo no volume do Redis.</span>
+            {% else %}
+              <strong class="indisponivel">—</strong>
+              <span>O Redis está temporariamente indisponível.</span>
+            {% endif %}
+          </div>
+        </div>
+      </section>
+
+      <div class="rodape">
+        <span>João Pedro Martinez Zambon · ADS · 6º Termo A</span>
+        <span>Unisalesiano · Araçatuba/SP</span>
+      </div>
+    </main>
+  </body>
+</html>
