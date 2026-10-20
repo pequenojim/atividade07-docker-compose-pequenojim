@@ -1,10 +1,9 @@
 {
   "name": "Atividade 07 - PequenoJim",
-  "image": "mcr.microsoft.com/devcontainers/python:3.12",
-  "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
-  },
-  "forwardPorts": [8000],
+  "image": "mcr.microsoft.com/devcontainers/universal:latest",
+  "forwardPorts": [
+    8000
+  ],
   "portsAttributes": {
     "8000": {
       "label": "PequenoJim - Aplicacao Web",
